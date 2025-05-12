@@ -11,11 +11,11 @@ using static Microsoft.ClearScript.V8.V8ScriptEngine;
 
 namespace FunctionAppGenerarPDF
 {
-    public class Function1
+    public class GenerarPDF
     {
-        private readonly ILogger<Function1> _logger;
+        private readonly ILogger<GenerarPDF> _logger;
 
-        public Function1(ILogger<Function1> logger)
+        public GenerarPDF(ILogger<GenerarPDF> logger)
         {
             _logger = logger;
         }
@@ -77,13 +77,9 @@ namespace FunctionAppGenerarPDF
                     CodeError = 99,
                     MensajeError = ex.Message
                 };
-
             }
-
             return new OkObjectResult(Respuesta);
         }
     }
-
-
     }
 
