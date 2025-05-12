@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace AzureFunction.ProcesarReportes
 {
-    public class Procesar
+    public static class Procesar
     {
-        public byte[] GenerarBytesPDF_GIE(string ruta, string Cliente, string Cedula, string Base64Firma, List<DatosFormularioGie> _Lista)
+        public static byte[] GenerarBytesPDF_GIE(string ruta, string? Cliente, string? Cedula, List<DatosFormularioGie> _Lista)
         {
             #region FORMATOS
             int nPage = 1;
@@ -279,7 +279,7 @@ namespace AzureFunction.ProcesarReportes
             return document.Close();
         }
 
-        public string CalcularAltoCelda(string texto, int tamanoFragmento, ref int cellHeight, int altoCelda)
+        public static  string CalcularAltoCelda(string texto, int tamanoFragmento, ref int cellHeight, int altoCelda)
         {
             List<string> fragmentos = new List<string>();
 
@@ -297,7 +297,7 @@ namespace AzureFunction.ProcesarReportes
             return texto;
         }
 
-        public void CrearTablaGenerica(int Orden, List<DatosFormularioGie> Datos, ref Document document, ref int nPage, ref int posiciony, ref int paso, ref int pagePDF, string Cedula = "")
+        public static void CrearTablaGenerica(int Orden, List<DatosFormularioGie> Datos, ref Document document, ref int nPage, ref int posiciony, ref int paso, ref int pagePDF, string Cedula = "")
         {
 
             var fontTexto = FontFactory.GetFont(Font.Family.Arial, 10, Font.NORMAL, BaseColor.BLACK);
@@ -473,7 +473,7 @@ namespace AzureFunction.ProcesarReportes
 
         }
 
-        public  List<DatosFormularioGie> Lista()
+        public static  List<DatosFormularioGie> Lista()
         {
 
             List<DatosFormularioGie> Datos = new List<DatosFormularioGie>();
@@ -824,7 +824,7 @@ namespace AzureFunction.ProcesarReportes
 
         }
 
-        private void CrearEncabezado(int pagePDF, ref int posicionY, ref Document document, int TotalPagina)
+        private static  void CrearEncabezado(int pagePDF, ref int posicionY, ref Document document, int TotalPagina)
         {
             document.SetPage(pagePDF);
 
@@ -871,7 +871,7 @@ namespace AzureFunction.ProcesarReportes
         }
 
 
-        private void VerificarSaltoPagina(ref int pagePDF, ref int posicionY, ref Document document)
+        private static void VerificarSaltoPagina(ref int pagePDF, ref int posicionY, ref Document document)
         {
             if (posicionY >= 240)
             {
@@ -882,7 +882,7 @@ namespace AzureFunction.ProcesarReportes
             }
         }
 
-        private void HacerSaltoPagina(ref int pagePDF, ref int posicionY, ref Document document)
+        private static void HacerSaltoPagina(ref int pagePDF, ref int posicionY, ref Document document)
         {
 
             pagePDF++;
@@ -894,7 +894,7 @@ namespace AzureFunction.ProcesarReportes
 
 
 
-        private byte[] CargarFirma(string ruta, string Base64, ref Document document, string Cedula, int PosicionX, int PosicionY, int Page)
+        private static  byte[] CargarFirma(string ruta, string Base64, ref Document document, string Cedula, int PosicionX, int PosicionY, int Page)
         {
 
             string nombrePDF = Cedula + DateTime.Now.Ticks.ToString() + ConstantesCreditos._Extension;

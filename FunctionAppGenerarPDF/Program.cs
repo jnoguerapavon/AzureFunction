@@ -19,15 +19,15 @@ builder.ConfigureFunctionsWebApplication();
 //     .ConfigureFunctionsApplicationInsights();
 
 
-//builder.Services.AddSingleton(new OpenApiConfigurationOptions()
-//{
-//    Info = new OpenApiInfo
-//    {
-//        Title = "Azure Function API",
-//        Version = "v1",
-//        Description = "Documentación de Swagger para Azure Function"
-//    }
-//});
+builder.Services.AddSingleton(new OpenApiConfigurationOptions()
+{
+    Info = new OpenApiInfo
+    {
+        Title = "Azure Function API",
+        Version = "v1",
+        Description = "Documentación de Swagger para Azure Function"
+    }
+});
 
 builder.Services.AddLogging();
 

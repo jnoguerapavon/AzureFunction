@@ -1,0 +1,135 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\sprints\\functionappgenerarpdf\\functionappgenerarpdf\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\function1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\sprints\\functionappgenerarpdf\\functionappgenerarpdf\\utilidades\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\utilidades\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\sprints\\functionappgenerarpdf\\functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1354,
+          "SelectedChildIndex": 16,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1798866506:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1862061956:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1869154607:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1653791162:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1374600851:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1474749077:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Function1.cs",
+              "DocumentMoniker": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\Function1.cs",
+              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Function1.cs",
+              "ToolTip": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\Function1.cs",
+              "RelativeToolTip": "FunctionAppGenerarPDF\\Function1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T22:41:27.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\Utilidades\\Utils.cs",
+              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Utilidades\\Utils.cs",
+              "ToolTip": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\Utilidades\\Utils.cs",
+              "RelativeToolTip": "FunctionAppGenerarPDF\\Utilidades\\Utils.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T22:41:16.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Procesar.cs",
+              "DocumentMoniker": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
+              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
+              "ToolTip": "C:\\NOVACOMP\\Sprints\\FunctionAppGenerarPDF\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
+              "RelativeToolTip": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T22:41:08.671Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
