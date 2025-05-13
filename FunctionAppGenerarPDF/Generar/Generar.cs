@@ -16,12 +16,11 @@ namespace FunctionAppGenerarPDF.Generar
 {
     public class Generar : IGenerar
     {
-        public async Task<List<T>> ConvertJsonArrayToList<T>(JsonArray? jsonArray)
-        {
-            if (jsonArray == null)
-                return new List<T>();
 
-            return  jsonArray.Deserialize<List<T>>() ?? new List<T>();
+        public Task<List<T>> ConvertJsonArrayToList<T>(JsonArray? jsonArray)
+        {
+            var result = jsonArray?.Deserialize<List<T>>() ?? new List<T>();
+            return Task.FromResult(result);
         }
 
         public Task<byte[]> GenerarPDFPorReporte(Constantes.Reportes? nombreReporte, string ruta, string? cliente, string? cedula, object datos)
@@ -31,13 +30,10 @@ namespace FunctionAppGenerarPDF.Generar
                 throw new NotSupportedException($"Sin datos");
             }
 
-            var lista = datos as List<DatosFormularioGie>;
-
-
             return nombreReporte switch
             {
                 Reportes.IRCTradicional =>  
-                Procesar.GenerarBytesPDF_GIE(ruta, cliente, cedula, lista),
+                Procesar.GenerarBytesPDF_GIE(ruta, cliente, cedula, (List<DatosFormularioGie>)datos),
                 _ => throw new NotSupportedException($"Generador para reporte '{nombreReporte}' no implementado."),
             };
         }
@@ -51,7 +47,7 @@ namespace FunctionAppGenerarPDF.Generar
 
             return datosJson.IdReporte switch
             {
-                Reportes.IRCTradicional =>ConvertJsonArrayToList<DatosFormularioGie>(datosJson.Datos),
+                Reportes.IRCTradicional =>await  ConvertJsonArrayToList<DatosFormularioGie>(datosJson.Datos),
                 _ => throw new NotSupportedException($"Reporte '{datosJson.IdReporte}' no está soportado."),
             };
         }
