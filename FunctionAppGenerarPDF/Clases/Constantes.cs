@@ -16,6 +16,8 @@ namespace FunctionAppGenerarPDF.Clases
             IRCTarjetas =2
         }
 
+        public const string Ruta = @"C:\";
+
 
     }
 }

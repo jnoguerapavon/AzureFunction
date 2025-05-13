@@ -1,23 +1,23 @@
 using AzureFunction;
-using AzureFunction.ProcesarReportes;
 using FunctionAppGenerarPDF.Clases;
-using FunctionAppGenerarPDF.Utilidades;
+using FunctionAppGenerarPDF.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using static Microsoft.ClearScript.V8.V8ScriptEngine;
 
 namespace FunctionAppGenerarPDF
 {
     public class GenerarPDF
     {
         private readonly ILogger<GenerarPDF> _logger;
+        private readonly IGenerar _generarService;
 
-        public GenerarPDF(ILogger<GenerarPDF> logger)
+        public GenerarPDF(ILogger<GenerarPDF> logger, IGenerar generarService)
         {
             _logger = logger;
+            _generarService = generarService;
         }
 
         [Function("GenerarPDF")]
@@ -35,17 +35,14 @@ namespace FunctionAppGenerarPDF
             try
             {
 
-                string ruta = @"C:\";
-
-             
                 // Obtener el cuerpo de la solicitud
                 var requestBody = await req.ReadFromJsonAsync<Request>();
 
                 if(requestBody != null)
                 {
-                    var datos = Utils.ObtenerDatosPorReporte(requestBody);
+                    var datos =await _generarService.ObtenerDatosPorReporte(requestBody);
 
-                    var bytes = Utils.GenerarPDFPorReporte(requestBody.IdReporte, ruta, requestBody.Cliente, requestBody.Cedula, datos);
+                    var bytes = await _generarService.GenerarPDFPorReporte(requestBody.IdReporte, Constantes.Ruta, requestBody.Cliente, requestBody.Cedula, datos);
 
                     string base64String = Convert.ToBase64String(bytes);
 

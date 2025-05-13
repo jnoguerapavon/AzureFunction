@@ -1,3 +1,5 @@
+using FunctionAppGenerarPDF.Generar;
+using FunctionAppGenerarPDF.Interfaces;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +30,9 @@ builder.Services.AddSingleton(new OpenApiConfigurationOptions()
         Description = "Documentación de Swagger para Azure Function"
     }
 });
+
+builder.Services.AddScoped<IGenerar, Generar>();
+
 
 builder.Services.AddLogging();
 
