@@ -2,6 +2,7 @@
 using BNCR.GeneradorPDF;
 using BNCR.GeneradorPDF.text;
 using BNCR.GeneradorPDF.text.pdf;
+using Microsoft.ClearScript.JavaScript;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -14,7 +15,7 @@ namespace AzureFunction.ProcesarReportes
 {
     public static class Procesar
     {
-        public static byte[] GenerarBytesPDF_GIE(string ruta, string? Cliente, string? Cedula, List<DatosFormularioGie> _Lista)
+        public static async Task<byte[]> GenerarBytesPDF_GIE(string ruta, string? Cliente, string? Cedula, List<DatosFormularioGie> _Lista)
         {
             #region FORMATOS
             int nPage = 1;
