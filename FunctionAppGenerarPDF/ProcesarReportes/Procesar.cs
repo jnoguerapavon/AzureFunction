@@ -829,7 +829,9 @@ namespace AzureFunction.ProcesarReportes
         {
             document.SetPage(pagePDF);
 
-            string ruta = ConstantesCreditos._Logo;
+            string basePath = AppContext.BaseDirectory; 
+            string ruta = Path.Combine(basePath, "images", "bnlogoani.jpg");
+
 
             var image = new Image(30, ruta, 12, 12);
             image.ScaleX = 30;

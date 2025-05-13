@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\NOVACOMP\\Repos\\AzureFunctions\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\generar\\generar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\generar\\generar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1354,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,28 +82,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Procesar.cs",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwA8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T18:44:52.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GenerarPDF.cs",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwD8AAAARAAAAAAAAAA==",
+              "Title": "Generar.cs",
+              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\Generar\\Generar.cs",
+              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Generar\\Generar.cs",
+              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\Generar\\Generar.cs",
+              "RelativeToolTip": "FunctionAppGenerarPDF\\Generar\\Generar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:27:47.375Z",
+              "WhenOpened": "2025-05-13T22:55:02.277Z",
               "EditorCaption": ""
             }
           ]

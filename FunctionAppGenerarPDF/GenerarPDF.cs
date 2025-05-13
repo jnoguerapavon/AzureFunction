@@ -72,7 +72,7 @@ namespace FunctionAppGenerarPDF
                 {
                     Archivo = "",
                     CodeError = 99,
-                    MensajeError = ex.Message
+                    MensajeError = ex.StackTrace + "--"  + ex.InnerException
                 };
             }
             return new OkObjectResult(Respuesta);
