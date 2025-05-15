@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AzureFunction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,22 @@ namespace FunctionAppGenerarPDF.Clases
 
         public enum Reportes
         {
+            [TipoFormularioAttribute(typeof(DatosFormularioGie))]
             IRCTradicional = 1,
-            IRCTarjetas =2
+
+            // Puedes agregar otros reportes así:
+            //[TipoFormulario(typeof(OtraClase))]
+            // OtroReporte,
         }
 
-        public const string Ruta = @"C:\";
+
+        public const string Ruta = "";
 
 
     }
+
+
+
+
+
 }
