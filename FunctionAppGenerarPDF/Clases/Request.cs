@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static FunctionAppGenerarPDF.Clases.Constantes;
 
@@ -10,14 +12,13 @@ namespace FunctionAppGenerarPDF.Clases
 {
     public  class Request
     {
-        public Reportes  IdReporte { get; set; }
+        [JsonPropertyName("TipoDocumento")]
+        public Documentos TipoDocumento { get; set; }
 
-        public string? Cliente {  get; set; }    
+        [JsonPropertyName("Usuario")]
+        public User? Usuario { get; set; }
 
-        public string? Cedula {  get; set; } 
-
-        public int? TipoId {  get; set; } 
-
+        [JsonPropertyName("Datos")]
         public JsonArray? Datos { get; set; }
 
     }

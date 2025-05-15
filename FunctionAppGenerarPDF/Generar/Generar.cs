@@ -20,30 +20,44 @@ namespace FunctionAppGenerarPDF.Generar
 {
     public class Generar : IGenerar
     {
-
+        /// <summary>
+        /// Este método convierte un objeto JsonArray (de System.Text.Json.Nodes) 
+        /// en una lista fuertemente tipada de objetos T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="jsonArray"></param>
+        /// <returns></returns>
         public Task<List<T>> ConvertJsonArrayToList<T>(JsonArray? jsonArray)
         {
             var result = jsonArray?.Deserialize<List<T>>() ?? new List<T>();
             return Task.FromResult(result);
         }
 
+        /// <summary>
+        /// Este método se encarga de generar un archivo PDF en formato binario (byte[]) según el tipo 
+        /// de documento solicitado, los datos del usuario y los datos asociados al reporte. 
+        /// El PDF generado depende del tipo de documento especificado.Actualmente, 
+        /// solo se implementa la generación para el tipo IRCTradicional.
+        /// </summary>
+        /// <param name="Tipo"></param>
+        /// <param name="Usuario"></param>
+        /// <param name="datos"></param>
+        /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
 
-
-
-
-        public Task<byte[]> GenerarPDFPorReporte(Constantes.Reportes? nombreReporte, string ruta, string? cliente, string? cedula, object datos)
+        public Task<byte[]> GenerarPDFPorReporte(Constantes.Documentos? Tipo, User Usuario, object datos)
         {
-            if (nombreReporte == null)
+            if (Tipo == null)
             {
                 throw new NotSupportedException($"Sin datos");
             }
 
 
-            return nombreReporte switch
+            return Tipo switch
             {
-                Reportes.IRCTradicional =>
-                Procesar.GenerarBytesPDF_GIE(ruta, cliente, cedula, (List<DatosFormularioGie>)datos),
-                _ => throw new NotSupportedException($"Generador para reporte '{nombreReporte}' no implementado."),
+                Documentos.IRCTradicional =>
+                Procesar.GenerarBytesIRCTradicional(string.Empty, Usuario.Cliente, Usuario.Identificacion, (List<DatosIRC>)datos),
+                _ => throw new NotSupportedException($"Generador para reporte '{Tipo}' no implementado."),
             };
         }
 
@@ -69,9 +83,9 @@ namespace FunctionAppGenerarPDF.Generar
             if (string.IsNullOrWhiteSpace((datosJson.Datos.ToJsonString())))
                 throw new ArgumentException("El campo 'Datos' está vacío.");
 
-            var tipo = ObtenerTipoDesdeEnum(datosJson.IdReporte);
+            var tipo = ObtenerTipoDesdeEnum(datosJson.TipoDocumento);
             if (tipo == null)
-                throw new NotSupportedException($"No se encontró tipo asociado para el reporte '{datosJson.IdReporte}'.");
+                throw new NotSupportedException($"No se encontró tipo asociado para el reporte '{datosJson.TipoDocumento}'.");
 
             var listType = typeof(List<>).MakeGenericType(tipo);
 
@@ -95,9 +109,9 @@ namespace FunctionAppGenerarPDF.Generar
         /// </summary>
         /// <param name="reporte"></param>
         /// <returns></returns>
-        public static Type? ObtenerTipoDesdeEnum(Reportes reporte)
+        public static Type? ObtenerTipoDesdeEnum(Documentos Tipo)
         {
-            var member = typeof(Reportes).GetMember(reporte.ToString()).FirstOrDefault();
+            var member = typeof(Documentos).GetMember(Tipo.ToString()).FirstOrDefault();
             var attr = member?.GetCustomAttributes(typeof(TipoFormularioAttribute), false).FirstOrDefault() as TipoFormularioAttribute;
             return attr?.Tipo;
         }

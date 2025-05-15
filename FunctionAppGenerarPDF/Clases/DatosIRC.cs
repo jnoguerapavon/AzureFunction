@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AzureFunction
 {
-    public class DatosFormularioGie
+    public class DatosIRC
     {
         /// <summary>
         /// Id GUID inico 

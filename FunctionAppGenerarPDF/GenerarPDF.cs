@@ -20,16 +20,19 @@ namespace FunctionAppGenerarPDF
             _generarService = generarService;
         }
 
+        /// <summary>
+        /// La función GenerarPDF es una Azure Function HTTP tipo POST que recibe datos de entrada en formato JSON, 
+        /// genera un archivo PDF según un tipo de documento y usuario, 
+        /// y devuelve el resultado en formato Base64 junto con un código de respuesta.
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         [Function("GenerarPDF")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
-      
-            var Respuesta = new Response
-            {
-                Archivo = "",
-                CodeError = 0,
-                MensajeError = ""
-            };
+
+            var Respuesta = new Response();
 
 
             try
@@ -42,7 +45,13 @@ namespace FunctionAppGenerarPDF
                 {
                     var datos =await _generarService.ObtenerDatosPorReporte(requestBody);
 
-                    var bytes = await _generarService.GenerarPDFPorReporte(requestBody.IdReporte, Constantes.Ruta, requestBody.Cliente, requestBody.Cedula, datos);
+                    if (requestBody.Usuario==null)
+                    {
+                        throw new ArgumentNullException("No hay datos");
+                    }
+                       
+
+                    var bytes = await _generarService.GenerarPDFPorReporte(requestBody.TipoDocumento, requestBody.Usuario, datos);
 
                     string base64String = Convert.ToBase64String(bytes);
 
@@ -72,7 +81,7 @@ namespace FunctionAppGenerarPDF
                 {
                     Archivo = "",
                     CodeError = 99,
-                    MensajeError = ex.StackTrace + "--"  + ex.InnerException
+                    MensajeError = ex.Message + "--" + ex.StackTrace + "--" + ex.InnerException
                 };
             }
             return new OkObjectResult(Respuesta);
