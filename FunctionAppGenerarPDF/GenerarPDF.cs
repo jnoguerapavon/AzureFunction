@@ -1,6 +1,7 @@
 using AzureFunction;
 using FunctionAppGenerarPDF.Clases;
 using FunctionAppGenerarPDF.Interfaces;
+using FunctionAppGenerarPDF.ManejoErrores;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
@@ -11,10 +12,10 @@ namespace FunctionAppGenerarPDF
 {
     public class GenerarPDF
     {
-        private readonly ILogger<GenerarPDF> _logger;
+        private readonly LoggerService _logger;
         private readonly IGenerar _generarService;
 
-        public GenerarPDF(ILogger<GenerarPDF> logger, IGenerar generarService)
+        public GenerarPDF(LoggerService logger, IGenerar generarService)
         {
             _logger = logger;
             _generarService = generarService;
@@ -37,6 +38,7 @@ namespace FunctionAppGenerarPDF
 
             try
             {
+                _logger.LogInfo("Inicio de función GenerarPDF");
 
                 // Obtener el cuerpo de la solicitud
                 var requestBody = await req.ReadFromJsonAsync<Request>();
@@ -61,6 +63,8 @@ namespace FunctionAppGenerarPDF
                         CodeError = 0,
                         MensajeError = "Archivo Generado correctamente"
                     };
+
+                    _logger.LogEvento("PDF_Generado");
                 }
                 else
                 {
@@ -76,6 +80,7 @@ namespace FunctionAppGenerarPDF
             }
             catch (Exception ex)
             {
+                _logger.LogError("Error en GenerarPDF", ex);
 
                 Respuesta = new Response
                 {

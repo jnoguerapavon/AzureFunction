@@ -1,5 +1,7 @@
 using FunctionAppGenerarPDF.Generar;
 using FunctionAppGenerarPDF.Interfaces;
+using FunctionAppGenerarPDF.ManejoErrores;
+using Microsoft.ApplicationInsights;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Extensions.Configuration;
@@ -15,10 +17,7 @@ new ConfigurationBuilder()
 
 builder.ConfigureFunctionsWebApplication();
 
-// Application Insights isn't enabled by default. See https://aka.ms/AAt8mw4.
-// builder.Services
-//     .AddApplicationInsightsTelemetryWorkerService()
-//     .ConfigureFunctionsApplicationInsights();
+
 
 
 builder.Services.AddSingleton(new OpenApiConfigurationOptions()
@@ -30,6 +29,16 @@ builder.Services.AddSingleton(new OpenApiConfigurationOptions()
         Description = "Documentación de Swagger para Azure Function"
     }
 });
+
+var connectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
+
+builder.Services.AddSingleton(new TelemetryClient(new Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration
+{
+    ConnectionString = connectionString
+}));
+
+
+builder.Services.AddSingleton<LoggerService>();
 
 builder.Services.AddScoped<IGenerar, Generar>();
 
