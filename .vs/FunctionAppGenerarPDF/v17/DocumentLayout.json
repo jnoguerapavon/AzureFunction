@@ -1,96 +1,19 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\NOVACOMP\\Repos\\AzureFunctions\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\utilitarios\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\utilitarios\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\novacomp\\repos\\azurefunctions\\functionappgenerarpdf\\manejoerrores\\loggerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\manejoerrores\\loggerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\MPC\\AZ\\AzureFunction\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1354,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 239,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "local.settings.json",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\local.settings.json",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\local.settings.json",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\local.settings.json",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\local.settings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-15T23:32:56.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GenerarPDF.cs",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowB8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T23:32:39.257Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T23:32:33.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoggerService.cs",
-              "DocumentMoniker": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\ManejoErrores\\LoggerService.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\ManejoErrores\\LoggerService.cs",
-              "ToolTip": "C:\\NOVACOMP\\Repos\\AzureFunctions\\FunctionAppGenerarPDF\\ManejoErrores\\LoggerService.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\ManejoErrores\\LoggerService.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAIwBQAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T23:32:30.337Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -143,6 +66,206 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1474749077:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{537833a5-e0f1-4405-821d-d83d89370b78}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4a9b7e51-aa16-11d0-a8c5-00a0c921a4d2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5a4e9529-b6a0-46b5-be4f-0f0b239bc0eb}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{588470cc-84f8-4a57-9ac4-86bca0625ff4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{4bcd4392-dbcf-4aa2-9852-01129d229cd8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{9a7cebbb-dc5c-4986-bc49-962da46aa506}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:522429794:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:169431133:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:184004654:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:687802801:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:368776935:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:961194634:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1106996892:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1772502522:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1394842917:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1676706224:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:450940255:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{80454082-9ab8-47d4-af23-82bf6739e2a9}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:16:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{80454082-9ab8-47d4-af23-82bf6739e2a9}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 161,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }
