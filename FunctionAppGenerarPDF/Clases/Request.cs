@@ -20,7 +20,7 @@ namespace FunctionAppGenerarPDF.Clases
         public User? Usuario { get; set; }
 
         [JsonProperty("Datos")]
-        public JsonArray? Datos { get; set; }
+        public string? Datos { get; set; }
 
     }
 }

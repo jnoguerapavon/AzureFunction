@@ -82,7 +82,7 @@ namespace FunctionAppGenerarPDF.Generar
             if (datosJson.Datos == null)
                 throw new NotSupportedException("Sin datos");
 
-            if (string.IsNullOrWhiteSpace((datosJson.Datos.ToJsonString())))
+            if (string.IsNullOrWhiteSpace(datosJson.Datos))
                 throw new ArgumentException("El campo 'Datos' está vacío.");
 
             var tipo = ObtenerTipoDesdeEnum(datosJson.TipoDocumento);
@@ -93,7 +93,7 @@ namespace FunctionAppGenerarPDF.Generar
 
             try
             {
-                var resultado = JsonConvert.DeserializeObject(datosJson.Datos.ToJsonString(), listType);
+                var resultado = JsonConvert.DeserializeObject(datosJson.Datos, listType);
 
                 if (resultado == null)
                     throw new InvalidOperationException("La deserialización devolvió null. Verifica el JSON de entrada y el tipo de destino.");
