@@ -12,4 +12,6 @@ namespace FunctionAppGenerarPDF.Clases
         [JsonPropertyName("Archivo")]
         public string? Archivo {  get; set; }    
     }
+
+
 }

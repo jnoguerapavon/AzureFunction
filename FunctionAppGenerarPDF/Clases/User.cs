@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,15 +12,15 @@ namespace FunctionAppGenerarPDF.Clases
     public  class User
     {
 
-        [JsonPropertyName("Cliente")]
+        [JsonProperty("Cliente")]
         public string? Cliente { get; set; }
 
   
-        [JsonPropertyName("Identificacion")]
+        [JsonProperty("Identificacion")]
         public string? Identificacion { get; set; }
 
 
-        [JsonPropertyName("TipoId")]
+        [JsonProperty("TipoId")]
         public int? TipoId { get; set; }
     }
 }

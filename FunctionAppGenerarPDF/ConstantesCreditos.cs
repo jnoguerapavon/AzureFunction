@@ -12,7 +12,8 @@ namespace AzureFunction
         #region Encabezado
 
         internal const string _Logo = "images/bnlogoani.jpg";
-        internal const string _NombreFormulario = "Nombre:                                                                              DECLARACIÓN JURADA GRUPO INTERÉS ECONÓMICO (PERSONA FÍSICA)";
+        internal const string _NombreFormulario =      "Nombre:                                                                              DECLARACIÓN JURADA GRUPO INTERÉS ECONÓMICO (PERSONA FÍSICA)";
+        internal const string _NombreCaratulaCredito = "Nombre:                                                                                                                Carátula única de crédito";
         internal const string _RutaDescargas = "ContentStaticIB/Descargas/";
         internal const string _CodigoFormulario = "Código: RE24-PR21GR02";
         internal const string _Pagina = "Página: Página @Inicio de @Fin";
