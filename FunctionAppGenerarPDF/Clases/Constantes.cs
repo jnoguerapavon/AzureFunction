@@ -13,12 +13,10 @@ namespace FunctionAppGenerarPDF.Clases
 
         public enum Documentos
         {
-            [TipoFormularioAttribute(typeof(DatosIRC))]
+            [TipoFormularioAttribute(typeof(DatosIrc))]
             IRCTradicional = 1,
-
-            // Puedes agregar otros reportes así:
-            //[TipoFormulario(typeof(OtraClase))]
-            // OtroReporte,
+            [TipoFormularioAttribute(typeof(DatosFormularioGie))]
+            Gie = 2
         }
 
 

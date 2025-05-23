@@ -33,7 +33,7 @@ namespace FunctionAppGenerarPDF
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
 
-            var Respuesta = new Response();
+            Response Respuesta;
 
 
             try
@@ -47,11 +47,11 @@ namespace FunctionAppGenerarPDF
                 {
                     var datos =await _generarService.ObtenerDatosPorReporte(requestBody);
 
-                    if (requestBody.Usuario==null)
+                    if (requestBody.Usuario == null)
                     {
-                        throw new ArgumentNullException("No hay datos");
+                        throw new InvalidOperationException("No hay Datos de usuario");
                     }
-                       
+
 
                     var bytes = await _generarService.GenerarPDFPorReporte(requestBody.TipoDocumento, requestBody.Usuario, datos);
 
