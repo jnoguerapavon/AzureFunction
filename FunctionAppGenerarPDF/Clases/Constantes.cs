@@ -1,4 +1,4 @@
-﻿using AzureFunction;
+﻿using FunctionAppGenerarPDF.Clases.IRC;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,6 +3,7 @@ using BNCR.GeneradorPDF;
 using BNCR.GeneradorPDF.text;
 using BNCR.GeneradorPDF.text.pdf;
 using FunctionAppGenerarPDF.Clases;
+using FunctionAppGenerarPDF.Clases.IRC;
 using FunctionAppGenerarPDF.Utilitarios;
 using Microsoft.ClearScript.JavaScript;
 using System;

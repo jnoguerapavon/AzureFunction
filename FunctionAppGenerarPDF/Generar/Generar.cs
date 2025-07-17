@@ -1,6 +1,6 @@
-﻿using AzureFunction;
-using AzureFunction.ProcesarReportes;
+﻿using AzureFunction.ProcesarReportes;
 using FunctionAppGenerarPDF.Clases;
+using FunctionAppGenerarPDF.Clases.IRC;
 using FunctionAppGenerarPDF.Interfaces;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Extensions;
 using Microsoft.ClearScript.JavaScript;
