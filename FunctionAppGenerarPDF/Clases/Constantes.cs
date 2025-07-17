@@ -14,21 +14,9 @@ namespace FunctionAppGenerarPDF.Clases
         public enum Documentos
         {
             [TipoFormularioAttribute(typeof(DatosIrc))]
-            IRCTradicional = 1,
-            [TipoFormularioAttribute(typeof(DatosFormularioGie))]
-            Gie = 2
+            IRCTradicional = 1
         }
 
-
-
-
-
-
-
-
-
-
-        public const string Ruta = "";
 
 
     }
