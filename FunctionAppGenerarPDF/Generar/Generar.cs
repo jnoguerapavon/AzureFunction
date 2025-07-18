@@ -56,7 +56,7 @@ namespace FunctionAppGenerarPDF.Generar
             return Tipo switch
             {
                 Documentos.IRCTradicional =>
-                Procesar.GenerarBytesIRCTradicional(string.Empty, Usuario.Cliente, Usuario.Identificacion, (List<DatosIrc>)datos),
+                Procesar.GenerarBytesIRCTradicional(string.Empty, Usuario.Cliente, Usuario.Identificacion, (List<DatosIrc>) datos),
                 _ => throw new NotSupportedException($"Generador para reporte '{Tipo}' no implementado."),
             };
         }

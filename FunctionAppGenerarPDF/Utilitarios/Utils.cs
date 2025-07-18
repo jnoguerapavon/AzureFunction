@@ -9,17 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FunctionAppGenerarPDF.Clases;
+using FunctionAppGenerarPDF.Clases.IRC;
 
 namespace FunctionAppGenerarPDF.Utilitarios
 {
     public static  class Utils
     {
 
-        public static string CalcularAltoCelda(string texto, int tamanoFragmento, ref int cellHeight, int altoCelda)
+        public static string CalcularAltoCelda(string? texto, int tamanoFragmento, ref int cellHeight, int altoCelda)
         {
             List<string> fragmentos = new List<string>();
 
-            for (int i = 0; i < texto.Length; i += tamanoFragmento)
+            for (int i = 0; i < texto?.Length; i += tamanoFragmento)
             {
                 int longitudFragmento = Math.Min(tamanoFragmento, texto.Length - i);
                 string fragmento = texto.Substring(i, longitudFragmento);
@@ -30,57 +31,18 @@ namespace FunctionAppGenerarPDF.Utilitarios
             {
                 cellHeight = (fragmentos.Count + 1) * altoCelda;
             }
-            return texto;
+            return string.IsNullOrEmpty(texto) ? string.Empty : texto;
         }
 
-        public static void CrearEncabezado(string Titulo,int pagePDF, ref int posicionY, ref Document document, int TotalPagina)
+        public static void AgregarLogo(string Titulo,int pagePDF, ref int posicionY, ref Document document, int TotalPagina)
         {
             document.SetPage(pagePDF);
-
             string basePath = AppContext.BaseDirectory;
-            string ruta = Path.Combine(basePath, "images", "bnlogoani.jpg");
-
-
+            string ruta = Path.Combine(basePath, "images", "BN.jpg");
             var image = new Image(30, ruta, 12, 12);
             image.ScaleX = 30;
-            image.ScaleY = 12;
-
-            int Aux = posicionY;
-
-            var fontTextoCabecera = FontFactory.GetFont(Font.Family.Arial, 12, Font.NORMAL, BaseColor.BLACK);
-
-            var HorizontalAlignmentTitulos = Element.ALIGN_CENTER;
-
-            var VerticalAlignmentTitulos = Element.V_ALIGN_TOP;
-
-            var fontTexto = FontFactory.GetFont(Font.Family.Arial, 6, Font.NORMAL, BaseColor.BLACK);
-
-            var BackgroundColorTitulos = new BaseColor(176, 188, 34);
-
-            int altoCelda = 0;
-
-            PdfTable tabla = new PdfTable(new float[] { 35, 120, 40 }, 10, posicionY);
-            tabla.AddCell(new PdfPCell() { BackgroundColor = BackgroundColorTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("", 35, ref altoCelda, 8), fontTextoCabecera) });
-            altoCelda = altoCelda + 8;
-            tabla.AddCell(new PdfPCell() { BackgroundColor = BackgroundColorTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Titulo, 120, ref altoCelda , 8), fontTextoCabecera) });
-            tabla.AddCell(new PdfPCell() { BackgroundColor = BackgroundColorTitulos, VerticalAlignment = VerticalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(ConstantesCreditos._CodigoFormulario, 35, ref altoCelda, 8), fontTextoCabecera) });
-
-            posicionY += altoCelda;
-
-            tabla.CellHeight = altoCelda;
-            document.Add(tabla);
+            image.ScaleY = 12;           
             document.AddImage(image);
-
-            altoCelda = 0;
-            PdfTable table = new PdfTable(new float[] { 30, 10 }, 165, Aux + 15);
-            string Pages = ConstantesCreditos._Pagina;
-            Pages = Pages.Replace(ConstantesCreditos._Inicio, pagePDF.ToString()).Replace(ConstantesCreditos._Fin, TotalPagina.ToString());
-            table.AddCell(new PdfPCell() {  HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Pages, 30, ref altoCelda, 3), fontTexto) });
-            table.AddCell(new PdfPCell() {  HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(ConstantesCreditos._Edicion, 10, ref altoCelda, 3), fontTexto) });
-            table.CellHeight = altoCelda;
-            document.Add(table);
-
-
         }
 
 
@@ -122,7 +84,64 @@ namespace FunctionAppGenerarPDF.Utilitarios
             return documentoPDF.Close();
         }
 
- 
+
+        public static void CrearTitulos(ref Document document, ref int posiciony)
+        {
+            PdfTable tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
+            //Definición para títulos
+            var fontTextoCabecera = FontFactory.GetFont(Font.Family.Arial, 11, Font.BOLD, BaseColor.WHITE);
+            var HorizontalAlignmentTitulos = Element.ALIGN_CENTER;
+            var BackgroundColorTitulosAzul = new BaseColor(30, 61, 140);
+            var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
+            var BackgroundColorTitulosOliva = new BaseColor(176, 188, 34);
+            var fontTextoCabecera2 = FontFactory.GetFont(Font.Family.Arial, 11, Font.BOLD, BaseColor.BLACK);
+            //Títulos
+            tabla.AddCell(new PdfPCell() { VerticalAlignment= VerticalAlignmentTitulos,  BackgroundColor = BackgroundColorTitulosAzul, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Dirección de Riesgos de Crédito ", fontTextoCabecera) });
+            tabla.CellHeight = 8;
+            posiciony += 8;
+            tabla.CellSpacing = 0.1f;
+            tabla.BorderWidth = 0.5f;
+            document.Add(tabla);
+            tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosOliva, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Carátula única de crédito", fontTextoCabecera2) });
+            tabla.CellHeight = 8;
+            tabla.CellSpacing = 0.1f;
+            tabla.BorderWidth = 0.5f;
+            posiciony += 8;
+            document.Add(tabla);
+        }
+
+
+        public static void CrearApartado0(ref Document document, ref int posiciony, DatosIrc? Datos)
+        {
+            PdfTable tabla = new PdfTable(new float[] { 50,50,50,50 }, 10, posiciony);
+            //Definición para títulos
+            var fontTextoTitulos = FontFactory.GetFont(Font.Family.Arial, 9, Font.NORMAL, BaseColor.BLACK);
+            var HorizontalAlignmentTitulos = Element.ALIGN_CENTER;
+            var BackgroundColorTitulosGris = new BaseColor(200, 201, 199);
+            var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
+            int altoCelda = 0;
+            int altoFila = 1;
+            int posYTable = posiciony;
+            //Títulos
+            tabla.AddCell(new PdfPCell() { VerticalAlignment= VerticalAlignmentTitulos,  BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Sucursal de Zona o CC", 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Datos?.infoSolicitante?.FirstOrDefault().codigoZonaComercial.ToString(), 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Oficina", 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Datos?.infoSolicitante?.FirstOrDefault().Agencia, 50, ref altoCelda, altoFila), fontTextoTitulos) });
+
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Fecha", 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(DateTime.Now.ToString("dd-MM-yyyy"), 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Monto solicitado", 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Datos?.infoSolicitante?.FirstOrDefault().montoSolicitado.ToString("N2"), 50, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.CellHeight = 8;
+            tabla.CellSpacing = 0.1f;
+            tabla.BorderWidth = 0.5f;
+            document.Add(tabla);
+            posYTable = posYTable + altoCelda;
+            posiciony = posYTable;
+        }
+
+
 
     }
 }

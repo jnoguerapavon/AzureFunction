@@ -22,19 +22,21 @@ namespace AzureFunction.ProcesarReportes
         {
             #region FORMATOS
             int pagePDF = 1;
+            int posicionY =25;
             Document document = new Document(PageSize.LETTER, Orientation.portrait);
             document.Open();
-            var textoColorNegrilla = FontFactory.GetFont(Font.Family.Arial, 12, Font.BOLD, BaseColor.BLACK);
             #endregion
 
 
 
             #region Titulos
-            var titulo1 = new Paragraph(75, 40, "Dirección de Riesgos de Crédito", textoColorNegrilla, Paragraph.CENTER);
-            var titulo2 = new Paragraph(75, 50, "Carátula única de crédito", textoColorNegrilla, Paragraph.CENTER);
 
-            document.Add(titulo1);
-            document.Add(titulo2);
+
+            Utils.CrearTitulos(ref document, ref posicionY);
+            #endregion
+
+            #region Aparatado0
+            Utils.CrearApartado0(ref document, ref posicionY, _Lista?.FirstOrDefault());
             #endregion
 
 
@@ -44,7 +46,7 @@ namespace AzureFunction.ProcesarReportes
             for (int x = 1; x <= pagePDF; x++)
             {
                 int AuxPosicionY = 5;
-                Utils.CrearEncabezado(ConstantesCreditos._NombreCaratulaCredito,x, ref AuxPosicionY, ref document, pagePDF);
+                Utils.AgregarLogo(ConstantesCreditos._NombreCaratulaCredito,x, ref AuxPosicionY, ref document, pagePDF);
             }
 
 

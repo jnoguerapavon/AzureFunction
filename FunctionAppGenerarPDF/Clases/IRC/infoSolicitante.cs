@@ -7,6 +7,8 @@
         public string nombreORazonSocial { get; set; }
         public int codigoZonaComercial { get; set; }
         public int codigoAgencia { get; set; }
+
+        public string Agencia { get; set; }
         public decimal montoSolicitado { get; set; }
         public string condicion { get; set; }
         public string codigosBN { get; set; }
