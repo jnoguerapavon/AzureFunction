@@ -85,7 +85,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
         }
 
 
-        public static void CrearTitulos(ref Document document, ref int posiciony)
+        public static void CrearTitulos(ref Document document, ref int posiciony, bool Apartado, string Titulo)
         {
             PdfTable tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
             //Definición para títulos
@@ -95,20 +95,113 @@ namespace FunctionAppGenerarPDF.Utilitarios
             var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
             var BackgroundColorTitulosOliva = new BaseColor(176, 188, 34);
             var fontTextoCabecera2 = FontFactory.GetFont(Font.Family.Arial, 11, Font.BOLD, BaseColor.BLACK);
+
             //Títulos
-            tabla.AddCell(new PdfPCell() { VerticalAlignment= VerticalAlignmentTitulos,  BackgroundColor = BackgroundColorTitulosAzul, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Dirección de Riesgos de Crédito ", fontTextoCabecera) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosAzul, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(Titulo, fontTextoCabecera) });
             tabla.CellHeight = 8;
             posiciony += 8;
             tabla.CellSpacing = 0.1f;
             tabla.BorderWidth = 0.5f;
             document.Add(tabla);
-            tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
-            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosOliva, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Carátula única de crédito", fontTextoCabecera2) });
-            tabla.CellHeight = 8;
+
+            if (!Apartado)
+            {
+                tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
+                tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosOliva, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Carátula única de crédito", fontTextoCabecera2) });
+                tabla.CellHeight = 8;
+                tabla.CellSpacing = 0.1f;
+                tabla.BorderWidth = 0.5f;
+                posiciony += 8;
+                document.Add(tabla);
+            }
+
+        }
+
+        public static void CrearApartado1(ref Document document, ref int posiciony, DatosIrc? Datos, ref int nPage, ref int paso, ref int pagePDF)
+        {
+            // Crear lista dinámica de enteros
+            List<int> MaxCelda = new List<int>();
+
+            PdfTable tabla = new PdfTable(new float[] { 30,30,30,20,20,25,25,20 }, 10, posiciony);
+            //Definición para títulos
+            var fontTextoTitulos = FontFactory.GetFont(Font.Family.Arial, 9, Font.NORMAL, BaseColor.BLACK);
+            var HorizontalAlignmentTitulos = Element.ALIGN_CENTER;
+            var BackgroundColorTitulosGris = new BaseColor(200, 201, 199);
+            var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
+            int altoCelda = 1;
+            int altoFila = 1;
+            int posYTable = posiciony;
+            //Títulos
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Condición", 30, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Nombre", 30, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Identificación", 30, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("NCPH SFN /SBD", 20, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Códigos con el BN", 20, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Score de Riesgo Crediticio", 25, ref altoCelda, altoFila), fontTextoTitulos) });
+            posYTable = posYTable + altoCelda;
+            tabla.CellHeight = 10;
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Cat. Riesgo según SICCRE", 25, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Nivel Seg. LC/TF ", 20, ref altoCelda, altoFila), fontTextoTitulos) });
+
             tabla.CellSpacing = 0.1f;
             tabla.BorderWidth = 0.5f;
-            posiciony += 8;
+
             document.Add(tabla);
+
+
+            if (Datos != null)
+            {
+                foreach (var Item in Datos.infoSolicitante)
+                {
+
+                    int altoCeldaItem = 1;
+                    altoFila = 1;
+
+                    if (posYTable >= 240)
+                    {
+                        posYTable = 25;
+                        paso = 1;
+                        pagePDF += 1;
+                        nPage += 1;
+                        document.AddNewPage(PageSize.LETTER, Orientation.portrait);
+                        document.SetPage(pagePDF);
+
+                        tabla = new PdfTable(new float[] { 30, 30, 30, 20, 20, 25, 25, 20 }, 25, 25);
+
+
+                    }
+
+
+                    paso = paso + 1;
+
+
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.condicion,30, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.nombreORazonSocial, 30, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.numeroIdentificacion, 30, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.ncphSfnSbd.ToString(), 20, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.codigosBN, 20, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.scoreCrediticio, 25, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.catRiesgo, 25, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+                    tabla.AddCell(new Phrase(CalcularAltoCelda(Item.nivelSegLcTf, 20, ref altoCeldaItem, altoFila), fontTextoTitulos));
+                    MaxCelda.Add(altoCeldaItem);
+
+
+                    tabla.CellHeight = MaxCelda.Max()*8;
+                    tabla.CellSpacing = 0.1f;
+                    tabla.BorderWidth = 0.5f;
+                    document.Add(tabla);
+                    posYTable = posYTable + MaxCelda.Max()*8;
+                }
+            }
+            document.Add(tabla);
+            posiciony = posYTable;
         }
 
 
@@ -122,7 +215,6 @@ namespace FunctionAppGenerarPDF.Utilitarios
             var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
             int altoCelda = 0;
             int altoFila = 1;
-            int posYTable = posiciony;
             //Títulos
             tabla.AddCell(new PdfPCell() { VerticalAlignment= VerticalAlignmentTitulos,  BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("Sucursal de Zona o CC", 50, ref altoCelda, altoFila), fontTextoTitulos) });
             tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Datos?.infoSolicitante?.FirstOrDefault().codigoZonaComercial.ToString(), 50, ref altoCelda, altoFila), fontTextoTitulos) });
@@ -137,8 +229,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
             tabla.CellSpacing = 0.1f;
             tabla.BorderWidth = 0.5f;
             document.Add(tabla);
-            posYTable = posYTable + altoCelda;
-            posiciony = posYTable;
+            posiciony += 16;
         }
 
 

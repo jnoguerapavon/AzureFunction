@@ -21,6 +21,8 @@ namespace AzureFunction.ProcesarReportes
         public static async Task<byte[]> GenerarBytesIRCTradicional(string ruta, string? Cliente, string? Identificacion, List<DatosIrc> _Lista)
         {
             #region FORMATOS
+            int nPage = 1;
+            int Paso = 1;
             int pagePDF = 1;
             int posicionY =25;
             Document document = new Document(PageSize.LETTER, Orientation.portrait);
@@ -32,13 +34,19 @@ namespace AzureFunction.ProcesarReportes
             #region Titulos
 
 
-            Utils.CrearTitulos(ref document, ref posicionY);
+            Utils.CrearTitulos(ref document, ref posicionY,false, "Dirección de Riesgos de Crédito");
             #endregion
 
             #region Aparatado0
             Utils.CrearApartado0(ref document, ref posicionY, _Lista?.FirstOrDefault());
             #endregion
 
+
+            Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)");
+
+            #region Aparatado1
+            Utils.CrearApartado1(ref document, ref posicionY, _Lista?.FirstOrDefault(),ref nPage,ref Paso,ref pagePDF);
+            #endregion
 
 
             #region Encabezado de pagina
