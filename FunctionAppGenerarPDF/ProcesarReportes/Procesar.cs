@@ -34,7 +34,7 @@ namespace AzureFunction.ProcesarReportes
             #region Titulos
 
 
-            Utils.CrearTitulos(ref document, ref posicionY,false, "Dirección de Riesgos de Crédito");
+            Utils.CrearTitulos(ref document, ref posicionY,false, "Dirección de Riesgos de Crédito",8);
             #endregion
 
             #region Aparatado0
@@ -42,11 +42,16 @@ namespace AzureFunction.ProcesarReportes
             #endregion
 
 
-            Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)");
+            Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)",8);
 
             #region Aparatado1
             Utils.CrearApartado1(ref document, ref posicionY, _Lista?.FirstOrDefault(),ref nPage,ref Paso,ref pagePDF);
             #endregion
+
+            Utils.CrearFila(ref document, ref posicionY, new float[] { 30, 170 },  "Códigos con el BNCR (Observaciones)" , _Lista?.FirstOrDefault());
+
+            Utils.CrearTitulos(ref document, ref posicionY, true, "2. Detalle del Grupo de Interés Económico Detalle del Grupo de Interés Económico \n(En caso de llevar Análisis Financiero el detalle del GIE en debe incluir en el informe financiero, no así en la carátula) ",12);
+
 
 
             #region Encabezado de pagina

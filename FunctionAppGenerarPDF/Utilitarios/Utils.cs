@@ -85,7 +85,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
         }
 
 
-        public static void CrearTitulos(ref Document document, ref int posiciony, bool Apartado, string Titulo)
+        public static void CrearTitulos(ref Document document, ref int posiciony, bool Apartado, string Titulo, int CellHeight)
         {
             PdfTable tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
             //Definición para títulos
@@ -98,8 +98,8 @@ namespace FunctionAppGenerarPDF.Utilitarios
 
             //Títulos
             tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosAzul, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(Titulo, fontTextoCabecera) });
-            tabla.CellHeight = 8;
-            posiciony += 8;
+            tabla.CellHeight = CellHeight;
+            posiciony += CellHeight;
             tabla.CellSpacing = 0.1f;
             tabla.BorderWidth = 0.5f;
             document.Add(tabla);
@@ -108,7 +108,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
             {
                 tabla = new PdfTable(new float[] { 200 }, 10, posiciony);
                 tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosOliva, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase("Carátula única de crédito", fontTextoCabecera2) });
-                tabla.CellHeight = 8;
+                tabla.CellHeight = CellHeight;
                 tabla.CellSpacing = 0.1f;
                 tabla.BorderWidth = 0.5f;
                 posiciony += 8;
@@ -166,7 +166,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
                         document.AddNewPage(PageSize.LETTER, Orientation.portrait);
                         document.SetPage(pagePDF);
 
-                        tabla = new PdfTable(new float[] { 30, 30, 30, 20, 20, 25, 25, 20 }, 25, 25);
+                        tabla = new PdfTable(new float[] { 30, 30, 30, 20, 20, 25, 25, 20 }, 10, 25);
 
 
                     }
@@ -193,15 +193,15 @@ namespace FunctionAppGenerarPDF.Utilitarios
                     MaxCelda.Add(altoCeldaItem);
 
 
-                    tabla.CellHeight = MaxCelda.Max()*8;
+                    tabla.CellHeight = 16;
                     tabla.CellSpacing = 0.1f;
                     tabla.BorderWidth = 0.5f;
                     document.Add(tabla);
-                    posYTable = posYTable + MaxCelda.Max()*8;
+                    posYTable = posYTable +16;
                 }
             }
             document.Add(tabla);
-            posiciony = posYTable;
+            posiciony = posYTable + 13;
         }
 
 
@@ -232,7 +232,26 @@ namespace FunctionAppGenerarPDF.Utilitarios
             posiciony += 16;
         }
 
+        public static void CrearFila(ref Document document, ref int posiciony, float[] Widths, string Label, DatosIrc? Datos)
+        {
+            PdfTable tabla = new PdfTable(Widths, 10, posiciony);
+            //Definición para títulos
+            var fontTextoTitulos = FontFactory.GetFont(Font.Family.Arial, 9, Font.NORMAL, BaseColor.BLACK);
+            var HorizontalAlignmentTitulos = Element.ALIGN_CENTER;
+            var BackgroundColorTitulosGris = new BaseColor(200, 201, 199);
+            var VerticalAlignmentTitulos = Element.ALIGN_CENTER;
+            int altoFila = 1;
+            int altoCelda = 1;
 
+
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, BackgroundColor = BackgroundColorTitulosGris, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda(Label, 30, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.AddCell(new PdfPCell() { VerticalAlignment = VerticalAlignmentTitulos, HorizontalAlignment = HorizontalAlignmentTitulos, phrase = new Phrase(CalcularAltoCelda("", 170, ref altoCelda, altoFila), fontTextoTitulos) });
+            tabla.CellHeight = 10;
+            posiciony += 10;
+            tabla.CellSpacing = 0.1f;
+            tabla.BorderWidth = 0.5f;
+            document.Add(tabla);
+        }
 
     }
 }
