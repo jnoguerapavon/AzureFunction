@@ -32,25 +32,40 @@ namespace AzureFunction.ProcesarReportes
 
 
             #region Titulos
-
-
             Utils.CrearTitulos(ref document, ref posicionY,false, "Dirección de Riesgos de Crédito",8);
             #endregion
 
-            #region Aparatado0
+            #region Apartado0
             Utils.CrearApartado0(ref document, ref posicionY, _Lista?.FirstOrDefault());
             #endregion
 
-
-            Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)",8);
-
-            #region Aparatado1
+            #region Apartado1
+            Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)", 8);
             Utils.CrearApartado1(ref document, ref posicionY, _Lista?.FirstOrDefault(),ref nPage,ref Paso,ref pagePDF);
+            Utils.CrearFila(ref document, ref posicionY, new float[] { 30, 170 }, "Códigos con el BNCR (Observaciones)", _Lista?.FirstOrDefault().infoSolicitante.FirstOrDefault().codigosBN);
             #endregion
 
-            Utils.CrearFila(ref document, ref posicionY, new float[] { 30, 170 },  "Códigos con el BNCR (Observaciones)" , _Lista?.FirstOrDefault());
+            Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
 
-            Utils.CrearTitulos(ref document, ref posicionY, true, "2. Detalle del Grupo de Interés Económico Detalle del Grupo de Interés Económico \n(En caso de llevar Análisis Financiero el detalle del GIE en debe incluir en el informe financiero, no así en la carátula) ",12);
+
+
+            #region Apartado2
+            Utils.CrearTitulos(ref document, ref posicionY, true, "2. Detalle del Grupo de Interés Económico Detalle del Grupo de Interés Económico \n(En caso de llevar Análisis Financiero el detalle del GIE en debe incluir en el informe financiero, no así en la carátula) ", 12);
+            Utils.CrearApartado2(ref document, ref posicionY, _Lista?.FirstOrDefault(), ref nPage, ref Paso, ref pagePDF);
+            Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
+            Utils.CrearFila(ref document, ref posicionY, new float[] { 150, 50 }, "Endeudamiento del Grupo de Interés Económico considerando la nueva deuda)", _Lista?.FirstOrDefault().detalleGie.Sum(x => x.endeudamientoBN).ToString("N2"));
+            #endregion
+
+            Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
+
+
+            #region Apartado3
+            Utils.CrearTitulos(ref document, ref posicionY, true, "3. Otras Referencias de los Deudores", 8);
+            Utils.CrearFilaVacia(ref document, ref posicionY, new float[] { 200 });
+            #endregion
+
+
+            Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
 
 
 
