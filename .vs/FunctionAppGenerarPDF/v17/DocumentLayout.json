@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\MPC\\AZ\\AzureFunction\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\mpc\\az\\azurefunction\\functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\generarpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\mpc\\az\\azurefunction\\functionappgenerarpdf\\utilitarios\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\utilitarios\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\mpc\\az\\azurefunction\\functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\procesarreportes\\procesar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|c:\\mpc\\az\\azurefunction\\functionappgenerarpdf\\generar\\generar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C84EEF23-5655-40C7-843D-BC149B44BCC0}|FunctionAppGenerarPDF\\FunctionAppGenerarPDF.csproj|solutionrelative:functionappgenerarpdf\\generar\\generar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 239,
-          "SelectedChildIndex": 50,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -227,58 +210,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GenerarPDF.cs",
-              "DocumentMoniker": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ToolTip": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\GenerarPDF.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAowC4AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T21:37:22.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Generar.cs",
-              "DocumentMoniker": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\Generar\\Generar.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Generar\\Generar.cs",
-              "ToolTip": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\Generar\\Generar.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\Generar\\Generar.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAwwD8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T21:37:22.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Procesar.cs",
-              "DocumentMoniker": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "ToolTip": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\ProcesarReportes\\Procesar.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwDwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T21:29:17.993Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "RelativeDocumentMoniker": "FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "ToolTip": "C:\\MPC\\AZ\\AzureFunction\\FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "RelativeToolTip": "FunctionAppGenerarPDF\\Utilitarios\\Utils.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAB/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-18T20:45:36.6Z",
-              "EditorCaption": ""
             }
           ]
         },

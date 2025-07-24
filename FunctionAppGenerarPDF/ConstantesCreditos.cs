@@ -8,6 +8,10 @@ namespace AzureFunction
 {
     public class ConstantesCreditos
     {
+        protected ConstantesCreditos()
+        {
+
+        }
 
         #region Encabezado
 

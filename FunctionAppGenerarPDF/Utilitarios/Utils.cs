@@ -232,7 +232,7 @@ namespace FunctionAppGenerarPDF.Utilitarios
             posiciony += 16;
         }
 
-        public static void CrearFila(ref Document document, ref int posiciony, float[] Widths, string Label, string Value)
+        public static void CrearFila(ref Document document, ref int posiciony, float[] Widths, string Label, string? Value)
         {
             PdfTable tabla = new PdfTable(Widths, 10, posiciony);
             //Definición para títulos

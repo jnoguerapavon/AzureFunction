@@ -18,7 +18,7 @@ namespace AzureFunction.ProcesarReportes
 {
     public static class Procesar
     {
-        public static async Task<byte[]> GenerarBytesIRCTradicional(string ruta, string? Cliente, string? Identificacion, List<DatosIrc> _Lista)
+        public static async Task<byte[]> GenerarBytesIRCTradicional(List<DatosIrc> _Lista)
         {
             #region FORMATOS
             int nPage = 1;
@@ -42,7 +42,7 @@ namespace AzureFunction.ProcesarReportes
             #region Apartado1
             Utils.CrearTitulos(ref document, ref posicionY, true, "1. Información del (los) Solicitante(s)", 8);
             Utils.CrearApartado1(ref document, ref posicionY, _Lista?.FirstOrDefault(),ref nPage,ref Paso,ref pagePDF);
-            Utils.CrearFila(ref document, ref posicionY, new float[] { 30, 170 }, "Códigos con el BNCR (Observaciones)", _Lista?.FirstOrDefault().infoSolicitante.FirstOrDefault().codigosBN);
+            Utils.CrearFila(ref document, ref posicionY, new float[] { 30, 170 }, "Códigos con el BNCR (Observaciones)", _Lista?.FirstOrDefault()?.infoSolicitante?.FirstOrDefault()?.codigosBN);
             #endregion
 
             Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
@@ -53,7 +53,8 @@ namespace AzureFunction.ProcesarReportes
             Utils.CrearTitulos(ref document, ref posicionY, true, "2. Detalle del Grupo de Interés Económico Detalle del Grupo de Interés Económico \n(En caso de llevar Análisis Financiero el detalle del GIE en debe incluir en el informe financiero, no así en la carátula) ", 12);
             Utils.CrearApartado2(ref document, ref posicionY, _Lista?.FirstOrDefault(), ref nPage, ref Paso, ref pagePDF);
             Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
-            Utils.CrearFila(ref document, ref posicionY, new float[] { 150, 50 }, "Endeudamiento del Grupo de Interés Económico considerando la nueva deuda)", _Lista?.FirstOrDefault().detalleGie.Sum(x => x.endeudamientoBN).ToString("N2"));
+            decimal? MontoTotalEndeudamiento = _Lista?.FirstOrDefault()?.detalleGie.Sum(x => x.endeudamientoBN) + _Lista?.FirstOrDefault()?.infoSolicitante?.FirstOrDefault()?.montoSolicitado;
+            Utils.CrearFila(ref document, ref posicionY, new float[] { 150, 50 }, "Endeudamiento del Grupo de Interés Económico considerando la nueva deuda)", MontoTotalEndeudamiento?.ToString("N2"));
             #endregion
 
             Utils.VerificarSaltoPagina(ref pagePDF, ref posicionY, ref document);
